@@ -113,14 +113,14 @@ send_handshake_error_response(DownstreamSocket, Reason, Protocol) ->
   gen_tcp:send(DownstreamSocket, build_handshake_error_response(Reason, Protocol)).
 
 build_handshake_ok_response(Protocol) ->
-  iolist_to_binary([
+  [
     Protocol, " 200 OK\r\n",
     "Connection: close\r\n\r\n"
-  ]).
+  ].
 
 build_handshake_error_response(_Reason, Protocol) ->
-  iolist_to_binary([
+  [
     Protocol, " 502 Bad Gateway\r\n",
     "Content-Length: 0\r\n",
     "Connection: close\r\n\r\n"
-  ]).
+  ].
