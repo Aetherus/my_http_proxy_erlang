@@ -6,7 +6,6 @@ start_link(Opts) ->
   gen_server:start_link({local, ?MODULE}, ?MODULE, Opts, []).
 
 init(Opts) ->
-  erlang:display(Opts),
   IP = proplists:get_value(ip, Opts, {127, 0, 0, 1}),
   Port = proplists:get_value(port, Opts, 1080),
   case listen(IP, Port) of

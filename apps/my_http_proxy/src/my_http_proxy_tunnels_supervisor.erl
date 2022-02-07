@@ -17,4 +17,4 @@ init(_) ->
   {ok, {SupFlags, ChildSpecs}}.
 
 start_child(DownstreamSocket, UpstreamProxy) ->
-  supervisor:start_child({local, ?MODULE}, [DownstreamSocket, UpstreamProxy]).
+  supervisor:start_child(?MODULE, [DownstreamSocket, UpstreamProxy]).
