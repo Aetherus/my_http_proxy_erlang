@@ -36,9 +36,9 @@ init([]) ->
         type => supervisor
       },
       #{
-        id => my_http_proxy_acceptor,
-        start => {my_http_proxy_acceptor, start_link, [[]]},
-        type => worker
+        id => my_http_proxy_server_supervisor,
+        start => {my_http_proxy_server_supervisor, start_link, [[]]},
+        type => supervisor
       }
     ],
     {ok, {SupFlags, ChildSpecs}}.
